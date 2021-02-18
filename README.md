@@ -1,4 +1,4 @@
-InstaClone
+InstaClone De Le Lay Logan
 
 To install 
 
