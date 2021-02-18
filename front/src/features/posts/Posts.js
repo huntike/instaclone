@@ -8,6 +8,7 @@ import Card from "../../components/Card";
 import CardConcave from "../../components/CardConcave";
 
 import { addPost, getPosts } from "../../services/postsServices";
+import fire from '../../fire';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { update, selectPosts } from './postsSlice.js';
@@ -16,6 +17,7 @@ import { update, selectPosts } from './postsSlice.js';
 const Posts = () => {
 
     const posts = useSelector(selectPosts);
+    const user = fire.auth().currentUser;
     const dispatch = useDispatch();
     const [content, setcontent] =React.useState();
     const [refresh, setrefresh] = React.useState(true);
@@ -24,7 +26,7 @@ const Posts = () => {
         e.preventDefault();
         
         if (content){
-            addPost(content).then(() =>setrefresh(true) )
+            addPost(content,user.email).then(() =>setrefresh(true) )
         }
     }
 
@@ -66,6 +68,7 @@ const Posts = () => {
                     margin="small"
                     width="small">
                         <Text>{post.content}</Text>
+                        <Text>de {post.email}</Text>
                     </CardConcave>
                 ))
 

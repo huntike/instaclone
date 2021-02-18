@@ -1,13 +1,15 @@
-This is a template for a React Redux App using the Grommet design system.
+InstaClone
 
 To install 
 
-`npm i`
+`npm i` in folder front and back
 
+To Start
 
-This template uses the create redux app template and have an exemple feature.
+in folder back `npm start`
+in folder front `npm start`
 
-The theme is setup for a Dark Neumorphism aesthetic. In the components folder, you will find a few neumorphic component created using Grommet components and Styled Component.
-
-You will also find leaflet support installed.
+USER 
+email: test@test.com
+password: testtest
 

@@ -19,12 +19,16 @@ const createToken = async () => {
     return payloadHeader;
 }
 
-export const addPost = async (content) => {
+export const addPost = async (content,email) => {
     const header = await createToken();
     console.log(content)
+    console.log(email)
     const payload ={
-        content
+        content,
+        email
+        
     }
+    console.log(payload)
     try {
         const res = await axios.post(url, payload, header);
         return res.data;
