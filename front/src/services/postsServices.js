@@ -19,13 +19,12 @@ const createToken = async () => {
     return payloadHeader;
 }
 
-export const addPost = async (content,email) => {
+export const addPost = async (content,email,like) => {
     const header = await createToken();
-    console.log(content)
-    console.log(email)
-    const payload ={
+        const payload ={
         content,
-        email
+        email,
+        like
         
     }
     console.log(payload)

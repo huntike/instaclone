@@ -7,14 +7,24 @@ import {Refresh} from "grommet-icons";
 import Card from "../../components/Card";
 import CardConcave from "../../components/CardConcave";
 
+
 import { addPost, getPosts } from "../../services/postsServices";
 import fire from '../../fire';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { update, selectPosts } from './postsSlice.js';
 
+const Counter = () => {
+    const  [like,setlike] =React.useState();
 
+    const publishLike = (e) => {
+        e.preventDefault();
+        //updatePost()
+    }
+
+}
 const Posts = () => {
+
 
     const posts = useSelector(selectPosts);
     const user = fire.auth().currentUser;
@@ -22,11 +32,13 @@ const Posts = () => {
     const [content, setcontent] =React.useState();
     const [refresh, setrefresh] = React.useState(true);
 
+   
+
     const publish = (e) => {
         e.preventDefault();
         
         if (content){
-            addPost(content,user.email).then(() =>setrefresh(true) )
+            addPost(content,user.email, 0).then(() =>setrefresh(true) )
         }
     }
 
@@ -57,8 +69,8 @@ const Posts = () => {
             justify="center"
             align="center"
             margin="medium"
-            width="medium"
-            height="medium">
+            width="large"
+            height="large">
                 {posts ? 
                 posts.map(post => (
                     <CardConcave align="center"
@@ -66,9 +78,13 @@ const Posts = () => {
                     round="medium"
                     padding="medium"
                     margin="small"
-                    width="small">
+                    width="medium">
                         <Text>{post.content}</Text>
                         <Text>de {post.email}</Text>
+                        <Text>Nombre de like {post.like}</Text>
+
+                        <Button  label="Like" />
+                        
                     </CardConcave>
                 ))
 
