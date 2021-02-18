@@ -10,6 +10,6 @@ in folder back `npm start`
 in folder front `npm start`
 
 USER 
-email: test@test.com
+email: test@test.fr
 password: testtest
 
